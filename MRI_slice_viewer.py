@@ -41,6 +41,7 @@ class MRIViewer(QWidget):
         self.z_slider.setMaximum(self.data.shape[2] - 1)
         self.z_slider.setValue(self.z_pos)
         self.z_slider.valueChanged.connect(self.change_z_slice)
+        self.set_sliders_enabled_for_direction(self.direction)
 
         # Layout
         layout = QVBoxLayout()
@@ -59,6 +60,7 @@ class MRIViewer(QWidget):
 
     def change_direction(self, direction):
         self.direction = direction
+        self.set_sliders_enabled_for_direction(direction)
         self.update_image()
 
     def change_x_slice(self, value):
@@ -76,6 +78,10 @@ class MRIViewer(QWidget):
         if self.direction == 'Z':
             self.update_image()
 
+    def set_sliders_enabled_for_direction(self, direction):
+        self.x_slider.setEnabled(direction == 'X')
+        self.y_slider.setEnabled(direction == 'Y')
+        self.z_slider.setEnabled(direction == 'Z')
     def update_image(self):
         if self.direction == 'X':
             slice_data = self.data[self.x_pos, :, :]
