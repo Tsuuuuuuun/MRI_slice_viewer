@@ -7,17 +7,19 @@
 
 ## 使い方
 
-見たい脳データの.giiファイルを用意し, 以下のコマンドを実行する.
+コマンドラインで `python MRI_slice_viewer.py` と入力すると, GUIが立ち上がる. あとは, GUIの指示に従って操作する.
 
-```bash
-python your_saved_script_name.py path_to_your_nii_file.nii.gz
-```
+![Alt text](image.png)
 
-なお, cmapはデフォルトでgrayになっているが, 任意のものに変更することができる.
+Select MRI File ボタンを押すと, MRIファイルを選択することができる. MRIファイルは, .giiファイルである必要がある.
 
-```bash
-python your_saved_script_name.py path_to_your_nii_file.nii.gz jet
-```
+![Alt text](image-1.png)
+
+MRIファイルを選択すると, MRIのスライス画像が表示される. スライスの位置は, xyzのスライダーを動かすことで変更することができる.
+
+![Alt text](image-2.png)
+
+Color map は変えることができる.
 
 データ例の元: [https://dataportal.brainminds.jp/atlas-package-download-main-page/bma-2019-ex-vivo](https://dataportal.brainminds.jp/atlas-package-download-main-page/bma-2019-ex-vivo)
 
